@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Atualiza Hora</title>    
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script> 
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  
+  </head>
+  <body>
+    <div id="root"></div>   
+    
+    
+    <script type="text/babel">
+        function Boanoite(props){
+          return <h1>Boa noite {props.titulo}!</h1>
+        }
+
+        function Agorasao(props){
+          return <h2>Agora são {props.hora}.</h2>
+        }
+
+        function atualizaHora(){
+          const elemento = (
+            <div>
+              <Boanoite titulo="Brazil" />
+              <Agorasao hora={new Date().toLocaleTimeString()} />
+            </div>
+          );
+
+          ReactDOM.render(elemento, document.getElementById("root"));
+        }
+
+        setInterval(atualizaHora, 1000)
+
+    </script>
+  </body>
+</html>
